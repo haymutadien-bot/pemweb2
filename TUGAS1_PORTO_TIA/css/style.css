@@ -1,0 +1,778 @@
+/* =============================================
+   TUGAS1_PORTO_TIA - Main Stylesheet
+   Author: Tia
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+    --primary:     #1a1a2e;
+    --secondary:   #16213e;
+    --accent:      #e94560;
+    --accent2:     #f5a623;
+    --light:       #f8f9fa;
+    --white:       #ffffff;
+    --gray:        #6c757d;
+    --card-bg:     #ffffff;
+    --border:      #e9ecef;
+    --shadow:      0 4px 24px rgba(26,26,46,0.10);
+    --radius:      12px;
+    --font-display: 'Playfair Display', serif;
+    --font-body:    'DM Sans', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--light);
+    color: var(--primary);
+    min-height: 100vh;
+}
+
+/* ── HEADER / CAROUSEL ── */
+.header-carousel .carousel-item {
+    height: 420px;
+    background: linear-gradient(135deg, var(--primary) 0%, #0f3460 60%, var(--accent) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.header-carousel .carousel-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.header-carousel .carousel-caption {
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.header-carousel .carousel-caption h1 {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.header-carousel .carousel-caption p {
+    font-size: 1.15rem;
+    opacity: 0.9;
+}
+
+.header-carousel .carousel-caption .badge-role {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50px;
+    padding: 4px 18px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+/* ── NAVBAR ── */
+.navbar-porto {
+    background: var(--primary) !important;
+    box-shadow: 0 2px 16px rgba(26,26,46,0.18);
+    padding: 0;
+}
+
+.navbar-porto .navbar-brand {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--white) !important;
+    letter-spacing: 1px;
+    padding: 12px 16px;
+}
+
+.navbar-porto .nav-link {
+    color: rgba(255,255,255,0.80) !important;
+    font-weight: 500;
+    padding: 14px 16px !important;
+    transition: color 0.2s, background 0.2s;
+    position: relative;
+    font-size: 0.93rem;
+}
+
+.navbar-porto .nav-link:hover,
+.navbar-porto .nav-link.active {
+    color: var(--accent) !important;
+    background: rgba(233,69,96,0.08);
+}
+
+.navbar-porto .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%; right: 50%;
+    height: 2px;
+    background: var(--accent);
+    transition: left 0.2s, right 0.2s;
+}
+
+.navbar-porto .nav-link:hover::after,
+.navbar-porto .nav-link.active::after {
+    left: 12px; right: 12px;
+}
+
+.navbar-porto .dropdown-menu {
+    background: var(--secondary);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    min-width: 200px;
+}
+
+.navbar-porto .dropdown-item {
+    color: rgba(255,255,255,0.80);
+    font-weight: 500;
+    padding: 10px 20px;
+    transition: all 0.2s;
+}
+
+.navbar-porto .dropdown-item:hover {
+    background: rgba(233,69,96,0.15);
+    color: var(--accent);
+}
+
+.navbar-porto .user-badge {
+    background: rgba(233,69,96,0.15);
+    border: 1px solid rgba(233,69,96,0.3);
+    border-radius: 50px;
+    padding: 4px 14px;
+    color: var(--accent) !important;
+    font-size: 0.85rem;
+}
+
+/* ── LAYOUT WRAPPER ── */
+.porto-layout {
+    display: flex;
+    gap: 0;
+    min-height: calc(100vh - 420px - 56px - 80px);
+}
+
+/* ── SIDEBAR ── */
+.porto-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    background: var(--white);
+    border-right: 1px solid var(--border);
+    padding: 28px 0;
+    position: sticky;
+    top: 0;
+    height: fit-content;
+}
+
+.sidebar-title {
+    font-family: var(--font-display);
+    font-size: 0.80rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gray);
+    padding: 0 20px 12px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 12px;
+}
+
+.sidebar-list .list-group-item {
+    border: none;
+    border-radius: 0;
+    padding: 10px 20px;
+    font-weight: 500;
+    color: var(--primary);
+    background: transparent;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.93rem;
+}
+
+.sidebar-list .list-group-item:hover,
+.sidebar-list .list-group-item.active {
+    background: linear-gradient(90deg, rgba(233,69,96,0.08) 0%, transparent 100%);
+    color: var(--accent);
+    border-left: 3px solid var(--accent);
+    padding-left: 17px;
+}
+
+.sidebar-list .list-group-item .sidebar-icon {
+    width: 28px;
+    height: 28px;
+    background: rgba(233,69,96,0.1);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+/* ── MAIN CONTENT ── */
+.porto-main {
+    flex: 1;
+    padding: 32px 36px;
+    min-width: 0;
+}
+
+/* ── CARDS ── */
+.card-porto {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-porto:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(26,26,46,0.14);
+}
+
+.card-porto .card-header-porto {
+    background: linear-gradient(135deg, var(--primary), #0f3460);
+    color: white;
+    padding: 16px 22px;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ── HOME PAGE ── */
+.profile-card-horizontal {
+    display: flex;
+    gap: 0;
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.profile-card-img {
+    width: 280px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--primary), #0f3460);
+}
+
+.profile-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.92;
+}
+
+.profile-card-img .img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 60%, rgba(255,255,255,0.05));
+}
+
+.profile-card-body {
+    flex: 1;
+    padding: 32px 36px;
+}
+
+.profile-card-body h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+
+.profile-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(233,69,96,0.08);
+    border: 1px solid rgba(233,69,96,0.2);
+    color: var(--accent);
+    border-radius: 50px;
+    padding: 4px 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.profile-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-info-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.93rem;
+}
+
+.profile-info-list li:last-child {
+    border-bottom: none;
+}
+
+.profile-info-list .info-label {
+    min-width: 120px;
+    font-weight: 600;
+    color: var(--gray);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ── ABOUT PAGE ── */
+.accordion-porto .accordion-button {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    font-family: var(--font-body);
+}
+
+.accordion-porto .accordion-button:not(.collapsed) {
+    background: var(--accent);
+    color: white;
+    box-shadow: none;
+}
+
+.accordion-porto .accordion-button::after {
+    filter: invert(1);
+}
+
+.accordion-porto .accordion-body {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: none;
+}
+
+/* ── CONTACT PAGE ── */
+.contact-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    text-align: center;
+    transition: all 0.25s;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(233,69,96,0.12);
+    border-color: rgba(233,69,96,0.25);
+}
+
+.contact-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+    font-size: 1.6rem;
+}
+
+/* ── CRUD TABLES ── */
+.crud-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.crud-header h4 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin: 0;
+}
+
+.table-porto {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.table-porto thead th {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    font-size: 0.83rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 14px 16px;
+    border: none;
+}
+
+.table-porto tbody tr {
+    transition: background 0.15s;
+}
+
+.table-porto tbody tr:hover {
+    background: rgba(233,69,96,0.04);
+}
+
+.table-porto tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+    font-size: 0.92rem;
+}
+
+.table-porto tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ── BUTTONS ── */
+.btn-porto-primary {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 22px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-porto-primary:hover {
+    background: #c73652;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(233,69,96,0.3);
+}
+
+.btn-porto-secondary {
+    background: var(--secondary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 22px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-porto-secondary:hover {
+    background: #0f3460;
+    color: white;
+}
+
+.btn-edit {
+    background: rgba(245,166,35,0.12);
+    color: var(--accent2);
+    border: 1px solid rgba(245,166,35,0.3);
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.btn-edit:hover {
+    background: var(--accent2);
+    color: white;
+    border-color: var(--accent2);
+}
+
+.btn-delete {
+    background: rgba(233,69,96,0.10);
+    color: var(--accent);
+    border: 1px solid rgba(233,69,96,0.25);
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.btn-delete:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+/* ── FORMS ── */
+.form-porto {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    padding: 32px;
+}
+
+.form-porto .form-label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--gray);
+    margin-bottom: 6px;
+}
+
+.form-porto .form-control,
+.form-porto .form-select {
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.93rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-porto .form-control:focus,
+.form-porto .form-select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(233,69,96,0.12);
+    outline: none;
+}
+
+/* ── LOGIN PAGE ── */
+.login-wrapper {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary) 0%, #0f3460 60%, #1a1a2e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(233,69,96,0.15) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    border-radius: 50%;
+}
+
+.login-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(245,166,35,0.08) 0%, transparent 70%);
+    bottom: -80px; left: -80px;
+    border-radius: 50%;
+}
+
+.login-card {
+    background: rgba(255,255,255,0.97);
+    border-radius: 20px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.25);
+    padding: 44px 40px;
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    z-index: 1;
+}
+
+.login-card .login-logo {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.login-card .login-logo h2 {
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.login-card .login-logo p {
+    color: var(--gray);
+    font-size: 0.88rem;
+}
+
+/* ── FOOTER ── */
+.porto-footer {
+    background: var(--primary);
+    color: rgba(255,255,255,0.75);
+    margin-top: 0;
+}
+
+.porto-footer .alert {
+    border-radius: 0;
+    margin: 0;
+    border: none;
+    background: var(--primary);
+    color: rgba(255,255,255,0.75);
+    padding: 24px 0;
+    text-align: center;
+}
+
+.porto-footer .alert a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.porto-footer .footer-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.footer-divider {
+    border-color: rgba(255,255,255,0.1);
+    margin: 12px 0;
+}
+
+/* ── ALERTS/MESSAGES ── */
+.alert-porto {
+    border-radius: 10px;
+    border: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 12px 18px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.alert-porto-success {
+    background: rgba(40,167,69,0.1);
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+.alert-porto-danger {
+    background: rgba(233,69,96,0.1);
+    color: #c73652;
+    border-left: 4px solid var(--accent);
+}
+
+/* ── SECTION TITLES ── */
+.section-title {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 6px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin-top: 6px;
+}
+
+.section-subtitle {
+    color: var(--gray);
+    font-size: 0.92rem;
+    margin-bottom: 24px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .porto-layout {
+        flex-direction: column;
+    }
+    .porto-sidebar {
+        width: 100%;
+        position: relative;
+    }
+    .porto-main {
+        padding: 20px 16px;
+    }
+    .profile-card-horizontal {
+        flex-direction: column;
+    }
+    .profile-card-img {
+        width: 100%;
+        height: 220px;
+    }
+    .header-carousel .carousel-caption h1 {
+        font-size: 2rem;
+    }
+    .login-card {
+        margin: 20px;
+        padding: 28px 22px;
+    }
+}
+
+/* ── BADGE / PILLS ── */
+.badge-level {
+    background: rgba(26,26,46,0.1);
+    color: var(--primary);
+    border-radius: 50px;
+    padding: 3px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.badge-accent {
+    background: var(--accent);
+    color: white;
+    border-radius: 50px;
+    padding: 3px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* ── PHOTO PLACEHOLDER ── */
+.photo-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 240px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.4);
+    font-size: 4rem;
+}
+
+.no-data {
+    text-align: center;
+    padding: 40px;
+    color: var(--gray);
+}
+
+.no-data i {
+    font-size: 3rem;
+    opacity: 0.3;
+    display: block;
+    margin-bottom: 12px;
+}
